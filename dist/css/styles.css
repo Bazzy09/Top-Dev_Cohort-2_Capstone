@@ -85,11 +85,11 @@ h1 {
     background-color: #a8a29e;
 }
 
-@media(max-width:768px){
+@media(max-width:760px){
     header {
         justify-content: space-between;
         font-size: 1em;
-        padding-left: 0.5rem
+        padding-left: 0.5rem;
     }
     h1 {
         font-size: 1.7em;
@@ -116,7 +116,7 @@ h1 {
 
     .nav-items {
         position:absolute;
-        left: -107%;
+        left: -100%;
         top: 54px;
         gap: 0;
         flex-direction: column;
@@ -125,6 +125,7 @@ h1 {
         width: 100%;
         text-align: center;
         transition: 0.3s;
+        box-sizing: border-box;
     }
     .nav-item {
         margin: 16px 0;

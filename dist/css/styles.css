@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+}
+
+header {
+    display: flex;
+    height: 70px;
+    background: #171717;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+}
+
+.right-nav-links {
+    display: flex;
+    position:static;
+}
+
+ul {
+    display: flex;
+    justify-content: end;
+    list-style-type: none;
+    gap: 1.5em;
+}
+
+ul a:hover {
+    color: white;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #a8a29e;
+    transition: 0.7s ease;
+}
+
+.search-label {
+    display: none;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    border: 2px solid #a8a29e;
+    border-radius: 20px;
+    height: 70%;
+    width: 250px;
+    padding: 0 1rem;
+    outline: none;
+    background: #171717;
+    color: #a8a29e;
+}
+
+span {
+    width: 100px;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    transition: 0.7s ease;
+    padding: 20px 0px
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #a8a29e;
+}
+
+@media(max-width:760px){
+    header {
+        justify-content: space-between;
+        font-size: 1em;
+        padding-left: 0.5rem;
+    }
+    h1 {
+        font-size: 1.7em;
+        width: 100%;
+    }
+    .hamburger {
+        display: block;
+        margin-left: 10px;
+        margin-right: 3px;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    input {
+        height: 50%;
+        margin-left: 1rem;
+    }
+
+    .nav-items {
+        position:absolute;
+        left: -100%;
+        top: 54px;
+        gap: 0;
+        flex-direction: column;
+        background: #171717;
+        color: #a8a29e;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-sizing: border-box;
+    }
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-items.active {
+        left: 0;
+    }
+}

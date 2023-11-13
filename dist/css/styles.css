@@ -180,6 +180,16 @@ content{
     border: 1px solid black;
 }
 
+.comment:hover{
+    color: white;
+    background-color: e6e1dd;
+}
+
+.reservation:hover{
+    color: white;
+    background-color: #e6e1dd;
+}
+
 @media(max-width:760px){
     header {
         justify-content: space-between;

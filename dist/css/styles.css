@@ -140,6 +140,14 @@ content{
     margin-right: 5px;
 }
 
+.likes:hover{
+    background: #e6e1dd;
+}
+
+.likes-counter{
+    padding: 5px;
+}
+
 @media(max-width:760px){
     header {
         justify-content: space-between;

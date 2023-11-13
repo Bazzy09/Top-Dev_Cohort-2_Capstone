@@ -98,6 +98,11 @@ content{
     border-radius: 20px 20px 0 0;
 }
 
+.likes img{
+    width: 18px;
+    margin-right: 5px;
+}
+
 @media(max-width:760px){
     header {
         justify-content: space-between;

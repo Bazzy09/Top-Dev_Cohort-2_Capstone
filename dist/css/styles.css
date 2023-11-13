@@ -85,6 +85,111 @@ h1 {
     background-color: #a8a29e;
 }
 
+content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 80px;
+    grid-gap: 65px;
+}
+
+.search-result{
+    margin-bottom: 50px;
+    height: 450px;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.20);
+}
+
+.search-result-poster{
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.20);
+    height: 60%;
+    border-radius: 20px 20px 0 0;
+}
+
+.search-result-poster :hover{
+    opacity: .7;
+}
+
+.search-result-poster img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 20px 0 0;
+}
+
+.title{
+    margin-left: 20px;
+    padding-left: 5px;
+}
+
+.reaction{
+    display: flex;
+    margin-left: 20px;
+    padding: 0 0 5px 5px;
+}
+
+.likes{
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.likes img{
+    width: 18px;
+    margin-right: 5px;
+}
+
+.likes:hover{
+    background: #e6e1dd;
+}
+
+.likes-counter{
+    padding: 5px;
+}
+
+.actions{
+    display: grid;
+    grid-gap: 10px;
+}
+
+.actions button{
+    padding: 5px;
+}
+
+.comment{
+    background-color: white;
+    color: #171717;
+    margin-bottom: 10px;
+}
+
+.reservation{
+    background-color: white;
+    color: #171717;
+    margin-bottom: 25px;
+}
+
+.comment, 
+.reservation{
+    width: 85%;
+    margin-left: 25px;
+    font-size: 14px;
+    font-weight: 550;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.comment:hover{
+    color: white;
+    background-color: e6e1dd;
+}
+
+.reservation:hover{
+    color: white;
+    background-color: #e6e1dd;
+}
+
 @media(max-width:760px){
     header {
         justify-content: space-between;
@@ -133,5 +238,22 @@ h1 {
 
     .nav-items.active {
         left: 0;
+    }
+
+    content{
+        padding: 15px;
+    }
+
+    .comment,
+    .reservation{
+        margin-left: 30px;
+    }
+
+    .title{
+        margin-left: 25px;
+    }
+
+    .likes{
+        margin-left: 5px;
     }
 }

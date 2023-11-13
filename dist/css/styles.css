@@ -248,4 +248,12 @@ content{
     .reservation{
         margin-left: 30px;
     }
+
+    .title{
+        margin-left: 25px;
+    }
+
+    .likes{
+        margin-left: 5px;
+    }
 }

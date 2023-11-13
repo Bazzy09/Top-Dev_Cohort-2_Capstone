@@ -243,4 +243,9 @@ content{
     content{
         padding: 15px;
     }
+
+    .comment,
+    .reservation{
+        margin-left: 30px;
+    }
 }

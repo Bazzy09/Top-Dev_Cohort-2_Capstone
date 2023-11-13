@@ -239,4 +239,8 @@ content{
     .nav-items.active {
         left: 0;
     }
+
+    content{
+        padding: 15px;
+    }
 }

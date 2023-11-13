@@ -85,6 +85,13 @@ h1 {
     background-color: #a8a29e;
 }
 
+content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 80px;
+    grid-gap: 65px;
+}
+
 @media(max-width:760px){
     header {
         justify-content: space-between;

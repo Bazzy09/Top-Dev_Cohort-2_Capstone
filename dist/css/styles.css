@@ -148,6 +148,15 @@ content{
     padding: 5px;
 }
 
+.actions{
+    display: grid;
+    grid-gap: 10px;
+}
+
+.actions button{
+    padding: 5px;
+}
+
 @media(max-width:760px){
     header {
         justify-content: space-between;

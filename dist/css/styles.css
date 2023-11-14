@@ -348,3 +348,15 @@ footer {
     padding-top: 20px;
     margin-top: 20px;
   }
+  .footer-legal a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .footer-links a:hover,
+  .social-links a:hover,
+  .footer-legal a:hover {
+    color: #808080;
+  }

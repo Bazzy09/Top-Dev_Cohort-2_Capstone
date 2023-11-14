@@ -315,3 +315,30 @@ footer {
     font-size: 1.3em;
     transition: color 0.3s ease-in-out;
   }
+
+  #partners {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+  }
+  
+  .partners-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+  }
+  
+  .partner {
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .partner:hover {
+    transform: scale(1.05);
+  }
+  
+  .partner img {
+    max-width: 60%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }

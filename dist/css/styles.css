@@ -279,3 +279,26 @@ footer {
   .footer-section p {
     line-height: 1.6;
   }
+
+  .footer-links,
+.social-links {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+}
+
+.footer-links h3,
+.social-links u {
+  color: #fff;
+}
+
+.footer-links li {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}

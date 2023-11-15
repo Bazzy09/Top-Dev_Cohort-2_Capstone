@@ -5,18 +5,18 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-items');
 const searchBtn = document.querySelector('.search-button');
-const tvShows = document.getElementById('tvshows');
+const tvShows = document.querySelectorAll('#tvshows');
 
 searchBtn.addEventListener('click', (event) => {
   event.preventDefault();
   getSearchShow();
 });
 
-tvShows.addEventListener('click', (event) => {
+tvShows.forEach((tvshownav) => tvshownav.addEventListener('click', (event) => {
   console.log('TV Shows link clicked');
   event.preventDefault();
   getShowsList();
-});
+}));
 
 async function getSearchShow() {
   try {
@@ -29,6 +29,7 @@ async function getSearchShow() {
     } console.log ('No search input provided.');
   } catch (error) {
     console.log (error);
+    return error;
   }
 }
 
@@ -42,7 +43,7 @@ async function fetchedData(response) {
     }
     return result;
   } console.log(result.Error);
-  throw new Error(result.Error);
+  return result.Error;
 }
 
 async function getShowsList() {
@@ -55,6 +56,7 @@ async function getShowsList() {
     return loadedTvShows;
   } catch (error) {
     console.log(error);
+    return error;
   }
 }
 

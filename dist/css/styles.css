@@ -287,6 +287,11 @@ footer {
   margin-right: 20px;
 }
 
+.links {
+    display: flex;
+    justify-content: space-around;
+}
+
 .footer-links h3,
 .social-links u {
   color: #fff;
@@ -301,6 +306,10 @@ footer {
   color: #fff;
   text-decoration: none;
   transition: color 0.3s ease-in-out;
+}
+
+.social-links {
+    margin-left: 100px;
 }
 
 .social-links u {

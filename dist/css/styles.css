@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 1em;
+    box-sizing: border-box;
 }
 
 header {
@@ -31,6 +32,7 @@ ul a:hover {
 
 li {
     list-style: none;
+    width: max-content;
 }
 
 a {
@@ -48,15 +50,41 @@ form {
     align-items: center;
 }
 
-input {
+.search-bar {
+    display: flex;
+    align-items: center;
     border: 2px solid #a8a29e;
     border-radius: 20px;
-    height: 70%;
-    width: 250px;
-    padding: 0 1rem;
-    outline: none;
     background: #171717;
+    width: 250px;
+    max-width: 400px;
+    height: 40px;
+    padding: 0 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.search-bar input {
+    background: #171717;
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0 0.5rem;
     color: #a8a29e;
+    font-size: 0.9em;
+}
+
+.search-bar button img {
+    width: 20px;
+}
+
+.search-bar button {
+    width: 30px;
+    border: none;
+    border-radius: 50%;
+    height: 30px;
+    background: rgb(91, 87, 87);
+    cursor: pointer;
 }
 
 span {

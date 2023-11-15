@@ -26,9 +26,9 @@ async function getSearchShow() {
       const response = await fetch(`${url}search/shows?q=${searchInput}`);
       const processedSearch = fetchedData(response);
       return processedSearch;
-    } console.log ('No search input provided.');
+    } console.log('No search input provided.');
   } catch (error) {
-    console.log (error);
+    console.log(error);
     return error;
   }
 }

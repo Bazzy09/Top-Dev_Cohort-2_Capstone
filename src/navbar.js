@@ -5,10 +5,17 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-items');
 const searchBtn = document.querySelector('.search-button');
+const tvShows = document.getElementById('tvshows');
 
 searchBtn.addEventListener('click', (event) => {
   event.preventDefault();
   getSearchShow();
+});
+
+tvShows.addEventListener('click', (event) => {
+  console.log('TV Shows link clicked');
+  event.preventDefault();
+  getShowsList();
 });
 
 async function getSearchShow() {
@@ -36,6 +43,19 @@ async function fetchedData(response) {
     return result;
   } console.log(result.Error);
   throw new Error(result.Error);
+}
+
+async function getShowsList() {
+  const url = 'https://api.tvmaze.com/shows';
+  try {
+    console.log('Fetching TV shows...');
+    const response = await fetch(url);
+    const loadedTvShows = await response.json();
+    console.log(loadedTvShows);
+    return loadedTvShows;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function closeMenu() {

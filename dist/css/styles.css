@@ -45,7 +45,7 @@ a {
     display: none;
 }
 
-form {
+.search-bar {
     display: flex;
     align-items: center;
 }
@@ -259,6 +259,7 @@ content{
         text-align: center;
         transition: 0.3s;
         box-sizing: border-box;
+        z-index: 1;
     }
     .nav-item {
         margin: 16px 0;
@@ -411,4 +412,65 @@ footer {
 .social-links a:hover,
 .footer-legal a:hover {
     color: #808080;
+}
+
+.full-details {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+.image-card {
+    display: flex;
+}
+
+.image-card img {
+    width: 400px;
+    height: 500px;
+    padding-top: 5px;
+}
+
+.show-info {
+    margin: 0px 20px;
+}
+
+.showTitle {
+    margin-top: 0;
+}
+
+#reserve-form {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-top: 20px;
+}
+
+#reserve-form input {
+    margin-bottom: 20px;
+}
+
+#reserve-form button {
+    width: 100px;
+    align-self: center;
+}
+
+.reservation-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reservation-header,
+.plot,
+.year,
+.genre,
+.rating {
+    margin-bottom: 0;
+}
+
+.year,
+.genre,
+.rating {
+    margin-top: 10px;
 }

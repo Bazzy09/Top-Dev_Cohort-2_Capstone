@@ -76,5 +76,9 @@ export async function displayHomeResults() {
       (loadedTvShows.slice(0, 15)).forEach(show => {
         createAppend(content, show)
     })
-
+      return loadedTvShows;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
 }

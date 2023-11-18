@@ -66,3 +66,7 @@ export function createAppend(content, show) {
     content.appendChild(searchResultDiv);
 }
     
+export async function displayHomeResults() {
+
+  
+}

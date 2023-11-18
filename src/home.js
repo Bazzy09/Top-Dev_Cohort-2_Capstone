@@ -23,6 +23,13 @@ export function createAppend(content, show) {
     likesCounter.textContent = `3 likes`;
 
 
+    const searchResultPoster = document.createElement('div');
+    searchResultPoster.classList.add('search-result-poster');
+    searchResultPoster.appendChild(posterImg);
+
+    const searchResultName = document.createElement('div');
+    searchResultName.classList.add('search-result-name');
+    searchResultName.appendChild(title);
 
 
 

@@ -53,10 +53,9 @@ export async function getShowsList(content, show) {
     console.log('Fetching TV shows...');
     const response = await fetch(url);
     const loadedTvShows = await response.json();
-    console.log(loadedTvShows);
     loadedTvShows.forEach(show => {
       createAppend(content, show)
-  })
+    })
   } catch (error) {
     console.log(error);
     return error;

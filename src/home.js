@@ -67,6 +67,7 @@ export function createAppend(content, show) {
 }
     
 export async function displayHomeResults() {
-
+    const content = document.querySelector('#content');
+    const url = 'https://api.tvmaze.com/shows';
   
 }

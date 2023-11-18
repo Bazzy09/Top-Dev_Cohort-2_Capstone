@@ -63,5 +63,6 @@ export function createAppend(content, show) {
     searchResultDiv.appendChild(searchResultName);
     searchResultDiv.appendChild(reactionDiv);
 
+    content.appendChild(searchResultDiv);
 }
     

@@ -1,3 +1,5 @@
+import { createAppend} from "./home";
+
 /* eslint-disable no-undef */
 /* eslint-disable consistent-return */
 /* eslint-disable no-use-before-define */
@@ -13,7 +15,6 @@ searchBtn.addEventListener('click', (event) => {
 });
 
 tvShows.forEach((tvshownav) => tvshownav.addEventListener('click', (event) => {
-  console.log('TV Shows link clicked');
   event.preventDefault();
   getShowsList();
 }));
@@ -46,14 +47,16 @@ async function fetchedData(response) {
   return result.Error;
 }
 
-async function getShowsList() {
+export async function getShowsList(content, show) {
   const url = 'https://api.tvmaze.com/shows';
   try {
     console.log('Fetching TV shows...');
     const response = await fetch(url);
     const loadedTvShows = await response.json();
     console.log(loadedTvShows);
-    return loadedTvShows;
+    loadedTvShows.forEach(show => {
+      createAppend(content, show)
+  })
   } catch (error) {
     console.log(error);
     return error;

@@ -22,6 +22,13 @@ export function createAppend(content, show) {
     const likesCounter = document.createElement('div');
     likesCounter.textContent = `3 likes`;
 
+    const commentButton = document.createElement('button');
+    commentButton.textContent = 'Comment';
+    commentButton.classList.add('comment');
+
+    const reservationButton = document.createElement('button');
+    reservationButton.textContent = 'Reservations';
+    reservationButton.classList.add('reservation');
 
     const searchResultPoster = document.createElement('div');
     searchResultPoster.classList.add('search-result-poster');

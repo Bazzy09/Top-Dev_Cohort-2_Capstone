@@ -51,7 +51,17 @@ export function createAppend(content, show) {
     likesDiv.appendChild(reaction);
     likesDiv.appendChild(likesCounter);
 
+    const actionsDiv = document.createElement('div');
+    actionsDiv.classList.add('actions');
+    actionsDiv.appendChild(commentButton);
+    actionsDiv.appendChild(reservationButton);
 
+    reactionDiv.appendChild(likesDiv);
+    reactionDiv.appendChild(actionsDiv);
+
+    searchResultDiv.appendChild(searchResultPoster);
+    searchResultDiv.appendChild(searchResultName);
+    searchResultDiv.appendChild(reactionDiv);
 
 }
     

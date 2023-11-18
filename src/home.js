@@ -12,6 +12,15 @@ export function createAppend(content, show) {
     title.classList.add('title');
     title.id = 'title';
 
+    const likeIcon = document.createElement('img');
+    likeIcon.src = './img/like.png';
+    likeIcon.alt = 'Like';
+
+    const likeText = document.createElement('div');
+    likeText.textContent = 'Like';
+
+    const likesCounter = document.createElement('div');
+    likesCounter.textContent = `3 likes`;
 
 
 

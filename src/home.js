@@ -69,5 +69,12 @@ export function createAppend(content, show) {
 export async function displayHomeResults() {
     const content = document.querySelector('#content');
     const url = 'https://api.tvmaze.com/shows';
-  
+    try {
+      console.log('Fetching TV shows...');
+      const response = await fetch(url);
+      const loadedTvShows = await response.json();
+      (loadedTvShows.slice(0, 15)).forEach(show => {
+        createAppend(content, show)
+    })
+
 }

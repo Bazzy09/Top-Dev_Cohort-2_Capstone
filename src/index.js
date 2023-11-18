@@ -1,4 +1,7 @@
 import { toggleHamburger, windowClick, closeMenu } from './navbar.js';
+import { displayHomeResults } from './home.js';
+
+displayHomeResults();
 
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelectorAll('.nav-link');

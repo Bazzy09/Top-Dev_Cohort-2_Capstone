@@ -75,7 +75,7 @@ export async function displayHomeResults() {
     const loadedTvShows = await response.json();
     (loadedTvShows.slice(0, 15)).forEach(show => {
       createAppend(content, show)
-  })
+    })
     return loadedTvShows;
   } catch (error) {
     console.log(error);

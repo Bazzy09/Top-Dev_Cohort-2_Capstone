@@ -1,4 +1,6 @@
-import { createAppend} from "./home";
+import { displayHomeResults } from "./home";
+import { getShowsList } from "./tvshows";
+import { getSearchShow } from "./showsearch";
 
 /* eslint-disable no-undef */
 /* eslint-disable consistent-return */
@@ -8,59 +10,30 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-items');
 const searchBtn = document.querySelector('.search-button');
 const tvShows = document.querySelectorAll('#tvshows');
+const homeBtn = document.querySelector('#home');
+const content = document.querySelector('#content');
+
+function clearContent() {
+  content.innerHTML = '';
+}
 
 searchBtn.addEventListener('click', (event) => {
   event.preventDefault();
+  clearContent();
   getSearchShow();
 });
 
 tvShows.forEach((tvshownav) => tvshownav.addEventListener('click', (event) => {
   event.preventDefault();
+  clearContent();
   getShowsList();
 }));
 
-async function getSearchShow() {
-  try {
-    const searchInput = document.getElementById('search').value;
-    const url = 'https://api.tvmaze.com/';
-    if (searchInput !== '') {
-      const response = await fetch(`${url}search/shows?q=${searchInput}`);
-      const processedSearch = fetchedData(response);
-      return processedSearch;
-    } console.log('No search input provided.');
-  } catch (error) {
-    console.log(error);
-    return error;
-  }
-}
-
-async function fetchedData(response) {
-  const result = await response.json();
-  if (response.ok) {
-    if (result.length === 0) {
-      console.log('No movies found.');
-    } else {
-      console.log(result);
-    }
-    return result;
-  } console.log(result.Error);
-  return result.Error;
-}
-
-export async function getShowsList(content, show) {
-  const url = 'https://api.tvmaze.com/shows';
-  try {
-    console.log('Fetching TV shows...');
-    const response = await fetch(url);
-    const loadedTvShows = await response.json();
-    loadedTvShows.forEach(show => {
-      createAppend(content, show)
-    })
-  } catch (error) {
-    console.log(error);
-    return error;
-  }
-}
+homeBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  clearContent();
+  displayHomeResults();
+});
 
 function closeMenu() {
   hamburger.classList.remove('active');
@@ -77,6 +50,23 @@ function windowClick(event) {
     !event.target.closest('.hamburger') && !event.target.closest('.nav-items')
   ) {
     closeMenu();
+  }
+}
+
+let navLinks = document.getElementsByClassName('nav-link');
+
+export function activeBtn(event) {
+
+  for (let i = 0; i < navLinks.length; i++) {
+    navLinks[i].classList.remove('active');
+  }
+
+  event.target.classList.add('active');  
+}
+
+export function handleClick() {
+  for (let i = 0; i < navLinks.length; i++) {
+    navLinks[i].addEventListener('click', activeBtn);
   }
 }
 

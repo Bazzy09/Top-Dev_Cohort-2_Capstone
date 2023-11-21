@@ -96,6 +96,10 @@ h1 {
     margin: 0;
 }
 
+.active{
+    color: white;
+}
+
 .hamburger {
     display: none;
     cursor: pointer;
@@ -116,7 +120,7 @@ h1 {
 content{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    padding: 80px;
+    margin: 50px;
     grid-gap: 65px;
 }
 
@@ -158,7 +162,6 @@ content{
     display: flex;
     justify-content: center;
     margin-right: 20px;
-    padding: 5px;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -169,7 +172,7 @@ content{
 }
 
 .likes:hover{
-    background: #e6e1dd;
+    background: #a8a29e;
 }
 
 .likes-counter{
@@ -210,12 +213,12 @@ content{
 
 .comment:hover{
     color: white;
-    background-color: e6e1dd;
+    background-color: #a8a29e;
 }
 
 .reservation:hover{
     color: white;
-    background-color: #e6e1dd;
+    background-color: #a8a29e;
 }
 
 @media(max-width:760px){

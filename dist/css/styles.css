@@ -87,6 +87,11 @@ a {
     cursor: pointer;
 }
 
+#search:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #171717 inset;
+    -webkit-text-fill-color: rgb(91, 87, 87);
+}
+
 span {
     width: 100px;
 }

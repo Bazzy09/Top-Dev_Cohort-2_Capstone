@@ -20,14 +20,14 @@
                 <input type="text" name="search" id="search" placeholder="Search for movies or TV shows">
                 <button type="submit" class="search-button"><img src="../dist/Assets/search-solid.svg" alt="search icon"></button>
             </form>
-            <ul class="nav-items">
-                <li class="nav-item">
-                    <a href="" class="nav-link">Home</a>
+            <ul class="nav-items" id="navItems">
+                <li class="nav-item active">
+                    <a href="" class="nav-link" id="home">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="navItem">
                     <a href="" class="nav-link" id="tvshows">TV Shows</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="navItem">
                     <a href="#about-us">About Us</a>
                 </li>
             </ul>
@@ -39,134 +39,7 @@
         </div>
     </header>
 
-    <content>
-        <div class="search-result">
-            <div class="search-result-poster">
-                <img src="./img/DeLorean.webp" alt=""/>
-            </div>
-            <div class="search-result-name">
-                <h3 class="title">Rafiki</h3>
-            </div>
-            <div class="reaction-action">
-                <div class="reaction">
-                    <div class="likes">
-                        <img src="./img/like.png" alt="">
-                        <div class="like">Like</div>
-                    </div>
-                    <div class="likes-counter">3 likes</div>
-                </div>
-                <div class="actions">
-                    <button class="comment">Comment</button>
-                    <button class="reservation">Reservations</button>
-                </div>
-            </div>
-        </div>
-        <div class="search-result">
-            <div class="search-result-poster">
-                <img src="./img/DeLorean.webp" alt=""/>
-            </div>
-            <div class="search-result-name">
-                <h3 class="title">Rafiki</h3>
-            </div>
-            <div class="reaction-action">
-                <div class="reaction">
-                    <div class="likes">
-                        <img src="./img/like.png" alt="">
-                        <div class="like">Like</div>
-                    </div>
-                    <div class="likes-counter">3 likes</div>
-                </div>
-                <div class="actions">
-                    <button class="comment">Comment</button>
-                    <button class="reservation">Reservations</button>
-                </div>
-            </div>
-        </div>
-        <div class="search-result">
-            <div class="search-result-poster">
-                <img src="./img/DeLorean.webp" alt=""/>
-            </div>
-            <div class="search-result-name">
-                <h3 class="title">Rafiki</h3>
-            </div>
-            <div class="reaction-action">
-                <div class="reaction">
-                    <div class="likes">
-                        <img src="./img/like.png" alt="">
-                        <div class="like">Like</div>
-                    </div>
-                    <div class="likes-counter">3 likes</div>
-                </div>
-                <div class="actions">
-                    <button class="comment">Comment</button>
-                    <button class="reservation">Reservations</button>
-                </div>
-            </div>
-        </div>
-        <div class="search-result">
-            <div class="search-result-poster">
-                <img src="./img/DeLorean.webp" alt=""/>
-            </div>
-            <div class="search-result-name">
-                <h3 class="title">Rafiki</h3>
-            </div>
-            <div class="reaction-action">
-                <div class="reaction">
-                    <div class="likes">
-                        <img src="./img/like.png" alt="">
-                        <div class="like">Like</div>
-                    </div>
-                    <div class="likes-counter">3 likes</div>
-                </div>
-                <div class="actions">
-                    <button class="comment">Comment</button>
-                    <button class="reservation">Reservations</button>
-                </div>
-            </div>
-        </div>
-        <div class="search-result">
-            <div class="search-result-poster">
-                <img src="./img/DeLorean.webp" alt=""/>
-            </div>
-            <div class="search-result-name">
-                <h3 class="title">Rafiki</h3>
-            </div>
-            <div class="reaction-action">
-                <div class="reaction">
-                    <div class="likes">
-                        <img src="./img/like.png" alt="">
-                        <div class="like">Like</div>
-                    </div>
-                    <div class="likes-counter">3 likes</div>
-                </div>
-                <div class="actions">
-                    <button class="comment">Comment</button>
-                    <button class="reservation">Reservations</button>
-                </div>
-            </div>
-        </div>
-        <div class="search-result">
-            <div class="search-result-poster">
-                <img src="./img/DeLorean.webp" alt=""/>
-            </div>
-            <div class="search-result-name">
-                <h3 class="title">Rafiki</h3>
-            </div>
-            <div class="reaction-action">
-                <div class="reaction">
-                    <div class="likes">
-                        <img src="./img/like.png" alt="">
-                        <div class="like">Like</div>
-                    </div>
-                    <div class="likes-counter">3 likes</div>
-                </div>
-                <div class="actions">
-                    <button class="comment">Comment</button>
-                    <button class="reservation">Reservations</button>
-                </div>
-            </div>
-        </div> 
-    </content>
+    <content id="content"></content>
     
     <footer>
         <div class="footer-section" id="about-us">
@@ -231,7 +104,6 @@
               <p> This is a capstone project for cohort 2 of the TOP Developers Institute.</p>
             </div>
         </div>
-
     </footer>
  <script src="main.js"></script>    
 </body>

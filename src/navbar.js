@@ -1,6 +1,6 @@
-import { displayHomeResults } from "./home";
-import { getShowsList } from "./tvshows";
-import { getSearchShow } from "./showsearch";
+import { displayHomeResults } from './home';
+import { getShowsList } from './tvshows';
+import { getSearchShow } from './showsearch';
 
 /* eslint-disable no-undef */
 /* eslint-disable consistent-return */
@@ -18,8 +18,6 @@ function clearContent() {
 }
 
 searchBtn.addEventListener('click', async (event) => {
-  const content = document.querySelector('.content');
-  content.innerHTML = '';
   event.preventDefault();
   clearContent();
   getSearchShow();
@@ -58,16 +56,15 @@ function windowClick(event) {
 let navLinks = document.getElementsByClassName('nav-link');
 
 export function activeBtn(event) {
-
-  for (let i = 0; i < navLinks.length; i++) {
+  for (let i = 0; i < navLinks.length; i += 1) {
     navLinks[i].classList.remove('active');
   }
 
-  event.target.classList.add('active');  
+  event.target.classList.add('active');
 }
 
 export function handleClick() {
-  for (let i = 0; i < navLinks.length; i++) {
+  for (let i = 0; i < navLinks.length; i += 1) {
     navLinks[i].addEventListener('click', activeBtn);
   }
 }

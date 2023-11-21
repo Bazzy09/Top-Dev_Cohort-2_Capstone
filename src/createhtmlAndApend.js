@@ -1,14 +1,15 @@
+/* eslint-disable no-nested-ternary */
 export function createAppend(content, show) {
   const searchResultDiv = document.createElement('div');
   searchResultDiv.classList.add('search-result');
 
   const posterImg = document.createElement('img');
-  posterImg.src = show.image ? show.image.medium : './img/placeholder.jpg';
+  posterImg.src = show.image ? show.image.medium : (show.show.image ? show.show.image.medium : './img/placeholder.jpg');
   posterImg.alt = 'Poster';
   posterImg.id = 'poster';
 
   const title = document.createElement('h3');
-  title.textContent = show.name;
+  title.textContent = show.name || (show.show.name) || 'Title N/A';
   title.classList.add('title');
   title.id = 'title';
 
@@ -79,7 +80,7 @@ function showMovieDetails(content, movieDetails) {
   imageCard.className = 'image-card';
 
   const img = document.createElement('img');
-  img.src = movieDetails.image?.medium;
+  img.src = movieDetails.image ? movieDetails.image.medium : (movieDetails.show.image ? movieDetails.show.image.medium : './img/placeholder.jpg');
   img.alt = 'show poster';
 
   const showInfo = document.createElement('div');
@@ -87,23 +88,23 @@ function showMovieDetails(content, movieDetails) {
 
   const showTitle = document.createElement('h1');
   showTitle.className = 'showTitle';
-  showTitle.textContent = movieDetails.name;
+  showTitle.textContent = movieDetails.name || movieDetails.show.name;
 
   const year = document.createElement('h3');
   year.className = 'year';
-  year.textContent = `Ended: ${movieDetails.ended || 'N/A'}`;
+  year.textContent = `Ended: ${movieDetails.ended || movieDetails.show.ended || 'N/A'}`;
 
   const genre = document.createElement('h3');
   genre.className = 'genre';
-  genre.textContent = movieDetails.genres ? movieDetails.genres.join(', ') : 'Genres N/A';
+  genre.textContent = movieDetails.genres ? movieDetails.genres.join(', ') : (movieDetails.show.genres ? movieDetails.show.genres.join(', ') : 'Genres N/A');
 
   const language = document.createElement('h3');
   language.className = 'language';
-  language.textContent = `Language: ${movieDetails.language || 'N/A'}`;
+  language.textContent = `Language: ${movieDetails.language || movieDetails.show.language || 'N/A'}`;
 
   const rating = document.createElement('h3');
   rating.className = 'rating';
-  rating.textContent = movieDetails.rating?.average ? `Rating: ${movieDetails.rating.average}/10` : 'Rating: N/A';
+  rating.textContent = movieDetails.rating?.average ? `Rating: ${movieDetails.rating.average}/10` : (movieDetails.show.rating?.average ? `Rating: ${movieDetails.show.rating.average}/10` : 'Rating: N/A');
 
   const showSummary = document.createElement('div');
   showSummary.className = 'show-summary';
@@ -114,7 +115,7 @@ function showMovieDetails(content, movieDetails) {
 
   const summary = document.createElement('div');
   summary.className = 'summary';
-  summary.innerHTML = movieDetails.summary || 'Summary N/A';
+  summary.innerHTML = movieDetails.summary || movieDetails.show.summary || 'Summary N/A';
 
   showSummary.appendChild(plotTitle);
   showSummary.appendChild(summary);

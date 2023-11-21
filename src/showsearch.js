@@ -14,19 +14,16 @@ export async function getSearchShow() {
     return error;
   }
 }
-  
+
 async function fetchedData(response) {
   const result = await response.json();
   if (response.ok) {
-    if (result.length === 0) {
-      console.log('No movies found.');
-    } else {
-      console.log(result)
-      result.forEach(show => {
-        createAppend(content, show)
-      })
-    }
+    console.log(result);
+    result.forEach(show => {
+      createAppend(content, show);
+    });
     return result;
-  } console.log(result.Error);
+  }
+  console.log(result.Error);
   return result.Error;
 }

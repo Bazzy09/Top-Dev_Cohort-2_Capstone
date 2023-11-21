@@ -64,8 +64,8 @@ export function createAppend(content, show) {
   searchResultDiv.appendChild(searchResultName);
   searchResultDiv.appendChild(reactionDiv);
   searchResultDiv.addEventListener('click', () => {
+    content.style.alignItems = 'normal';
     content.innerHTML = '';
-    console.log('single Show clicked', show);
     showMovieDetails(content, show);
   });
 

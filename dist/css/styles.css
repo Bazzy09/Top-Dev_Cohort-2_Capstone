@@ -45,7 +45,7 @@ a {
     display: none;
 }
 
-form {
+.search-bar {
     display: flex;
     align-items: center;
 }
@@ -85,6 +85,11 @@ form {
     height: 30px;
     background: rgb(91, 87, 87);
     cursor: pointer;
+}
+
+#search:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #171717 inset;
+    -webkit-text-fill-color: rgb(91, 87, 87);
 }
 
 span {
@@ -221,73 +226,6 @@ content{
     background-color: #a8a29e;
 }
 
-@media(max-width:760px){
-    header {
-        justify-content: space-between;
-        font-size: 1em;
-        padding-left: 0.5rem;
-    }
-    h1 {
-        font-size: 1.7em;
-        width: 100%;
-    }
-    .hamburger {
-        display: block;
-        margin-left: 10px;
-        margin-right: 3px;
-    }
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-    input {
-        height: 50%;
-        margin-left: 1rem;
-    }
-
-    .nav-items {
-        position:absolute;
-        left: -100%;
-        top: 54px;
-        gap: 0;
-        flex-direction: column;
-        background: #171717;
-        color: #a8a29e;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-sizing: border-box;
-    }
-    .nav-item {
-        margin: 16px 0;
-    }
-
-    .nav-items.active {
-        left: 0;
-    }
-
-    content{
-        padding: 15px;
-    }
-
-    .comment,
-    .reservation{
-        margin-left: 30px;
-    }
-
-    .title{
-        margin-left: 25px;
-    }
-
-    .likes{
-        margin-left: 5px;
-    }
-}
 
 footer {
     background-color: #222;
@@ -414,4 +352,176 @@ footer {
 .social-links a:hover,
 .footer-legal a:hover {
     color: #808080;
+}
+
+.full-details {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+.image-card {
+    display: flex;
+}
+
+.image-card img {
+    width: 400px;
+    height: 500px;
+    padding-top: 5px;
+}
+
+.show-info {
+    margin: 0px 20px;
+}
+
+.showTitle {
+    margin-top: 0;
+}
+
+#reserve-form {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-top: 20px;
+}
+
+#reserve-form input {
+    margin-bottom: 20px;
+}
+
+#reserve-form button {
+    width: 100px;
+    align-self: center;
+}
+
+.reservation-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reservation-header,
+.plot,
+.year,
+.genre,
+.rating {
+    margin-bottom: 0;
+}
+
+.year,
+.genre,
+.rating {
+    margin-top: 10px;
+}
+
+@media(max-width:760px){
+    header {
+        justify-content: space-between;
+        font-size: 1em;
+        padding-left: 0.5rem;
+    }
+    h1 {
+        font-size: 1.7em;
+        width: 100%;
+    }
+    .hamburger {
+        display: block;
+        margin-left: 10px;
+        margin-right: 3px;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    input {
+        height: 50%;
+        margin-left: 1rem;
+    }
+
+    .nav-items {
+        position:absolute;
+        left: -100%;
+        top: 54px;
+        gap: 0;
+        flex-direction: column;
+        background: #171717;
+        color: #a8a29e;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-sizing: border-box;
+        z-index: 1;
+    }
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-items.active {
+        left: 0;
+    }
+
+    content{
+        padding: 15px 0;
+        margin: 0 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-result {
+        width: 70vw;
+    }
+
+    .comment,
+    .reservation{
+        margin-left: 30px;
+    }
+
+    .title{
+        margin-left: 25px;
+    }
+
+    .likes{
+        margin-left: 5px;
+    }
+
+    .image-card {
+        flex-direction: column;
+        max-width: 300px;
+    }
+
+   .image-card img {
+         width: 400px;
+        margin: 0 10px;
+    } 
+
+    .show-info {
+        width: 95vw;
+        margin: 0 10px;
+    }
+
+    .full-details {
+        margin: 0;
+        display: flex;
+        padding: 0;
+    }
+
+    header, 
+    footer {
+        width: 100vw;
+    }
+    
+    .year, 
+    .genre, 
+    .language, 
+    .rating {
+        font-size: 1rem;
+    }
+
 }

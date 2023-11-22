@@ -22,6 +22,7 @@ export function createAppend(content, show) {
 
   const likesCounter = document.createElement('div');
   likesCounter.textContent = '3 likes';
+  likesCounter.classList.add('likesCounter');
 
   const commentButton = document.createElement('button');
   commentButton.textContent = 'Comment';
@@ -63,7 +64,8 @@ export function createAppend(content, show) {
   searchResultDiv.appendChild(searchResultPoster);
   searchResultDiv.appendChild(searchResultName);
   searchResultDiv.appendChild(reactionDiv);
-  searchResultDiv.addEventListener('click', () => {
+  searchResultDiv.appendChild(reservationForm);
+  searchResultPoster.addEventListener('click', () => {
     content.style.alignItems = 'normal';
     content.innerHTML = '';
     showMovieDetails(content, show);

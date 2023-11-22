@@ -17,7 +17,7 @@ function clearContent() {
   content.innerHTML = '';
 }
 
-searchBtn.addEventListener('click', async (event) => {
+searchBtn.addEventListener('click', (event) => {
   event.preventDefault();
   clearContent();
   getSearchShow();
@@ -53,7 +53,7 @@ function windowClick(event) {
   }
 }
 
-let navLinks = document.getElementsByClassName('nav-link');
+const navLinks = document.getElementsByClassName('nav-link');
 
 export function activeBtn(event) {
   for (let i = 0; i < navLinks.length; i += 1) {

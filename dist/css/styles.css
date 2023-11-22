@@ -89,7 +89,7 @@ a {
 
 #search:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px #171717 inset;
-    -webkit-text-fill-color: rgb(91, 87, 87);
+    -webkit-text-fill-color:  #a8a29e;
 }
 
 span {
@@ -383,7 +383,10 @@ footer {
     display: flex;
     flex-direction: column;
     width: 200px;
-    margin-top: 20px;
+    margin-top: 5px;
+    margin-bottom: -7px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #reserve-form input {

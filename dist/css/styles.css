@@ -142,6 +142,11 @@ content{
     transition: opacity 0.75s, visibility 0.75s;
 }
 
+.loader-hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+
 .search-result{
     margin-bottom: 50px;
     height: 450px;

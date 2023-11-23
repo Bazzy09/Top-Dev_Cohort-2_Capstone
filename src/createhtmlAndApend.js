@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-nested-ternary */
-import { generateCommentForm, createCommentLogs, addComment } from './comment';
+import { generateCommentForm, createCommentLogs, addCommentToComments } from './comment';
 
 export function createAppend(content, show) {
   const searchResultDiv = document.createElement('div');
@@ -152,6 +152,6 @@ function showMovieDetails(content, movieDetails) {
   commentSubmitBtn.addEventListener('click', (event) => {
     console.log('clicked');
     event.preventDefault();
-    addComment();
+    addCommentToComments();
   });
 }

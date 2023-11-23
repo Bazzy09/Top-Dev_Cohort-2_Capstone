@@ -1,4 +1,8 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable no-nested-ternary */
+import { generateCommentForm, createCommentLogs, addCommentToComments } from './comment';
+
 export function createAppend(content, show) {
   const searchResultDiv = document.createElement('div');
   searchResultDiv.classList.add('search-result');
@@ -22,6 +26,7 @@ export function createAppend(content, show) {
 
   const likesCounter = document.createElement('div');
   likesCounter.textContent = '3 likes';
+  likesCounter.classList.add('likesCounter');
 
   const commentButton = document.createElement('button');
   commentButton.textContent = 'Comment';
@@ -63,16 +68,25 @@ export function createAppend(content, show) {
   searchResultDiv.appendChild(searchResultPoster);
   searchResultDiv.appendChild(searchResultName);
   searchResultDiv.appendChild(reactionDiv);
-  searchResultDiv.addEventListener('click', () => {
+  searchResultPoster.addEventListener('click', () => {
     content.style.alignItems = 'normal';
     content.innerHTML = '';
     showMovieDetails(content, show);
   });
 
+  commentButton.addEventListener('click', () => {
+    content.style.alignItems = 'normal';
+    content.innerHTML = '';
+    showMovieDetails(content, show);
+    const commentSectiondisplay = document.querySelector('.comment-form');
+    commentSectiondisplay.classList.toggle('active');
+  });
   content.appendChild(searchResultDiv);
 }
 
 function showMovieDetails(content, movieDetails) {
+  const commentLogSection = createCommentLogs();
+  const commentSection = generateCommentForm();
   const fullDetailsContainer = document.createElement('div');
   fullDetailsContainer.className = 'full-details';
 
@@ -129,6 +143,15 @@ function showMovieDetails(content, movieDetails) {
   imageCard.appendChild(showInfo);
 
   fullDetailsContainer.appendChild(imageCard);
+  fullDetailsContainer.appendChild(commentLogSection);
+  fullDetailsContainer.appendChild(commentSection);
 
   content.appendChild(fullDetailsContainer);
+
+  const commentSubmitBtn = document.querySelector('.submit-comment');
+  commentSubmitBtn.addEventListener('click', (event) => {
+    console.log('clicked');
+    event.preventDefault();
+    addCommentToComments();
+  });
 }

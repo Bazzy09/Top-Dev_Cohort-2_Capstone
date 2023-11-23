@@ -147,6 +147,25 @@ content{
     visibility: hidden;
 }
 
+.loader::after{
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid #dddddd;
+    border-top-color: #a8a29e;
+    border-radius: 50%;
+    animation: loading 0.75s ease;
+}
+
+@keyframes loading {
+    from{
+        transform: rotate(0turn);
+    }
+    to{
+        transform: rotate(1turn);
+    }
+}
+
 .search-result{
     margin-bottom: 50px;
     height: 450px;

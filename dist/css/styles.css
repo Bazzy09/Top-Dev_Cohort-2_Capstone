@@ -129,6 +129,19 @@ content{
     grid-gap: 65px;
 }
 
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f9fb;
+    transition: opacity 0.75s, visibility 0.75s;
+}
+
 .search-result{
     margin-bottom: 50px;
     height: 450px;

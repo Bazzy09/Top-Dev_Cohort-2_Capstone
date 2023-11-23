@@ -3,6 +3,17 @@ function createCommentSection() {
   form.action = '';
   form.className = 'comment-form';
 
+  const commentDateLabel = document.createElement('label');
+  commentDateLabel.textContent = 'Date';
+  commentDateLabel.for = 'comment-date';
+
+  const commentDate = document.createElement('input');
+  commentDate.style.display = 'none';
+  commentDate.type = 'date';
+  commentDate.id = 'comment-date';
+  const today = new Date().toISOString().split('T')[0];
+  commentDate.value = today;
+
   const nameLabel = document.createElement('label');
   nameLabel.htmlFor = 'comment-username';
   nameLabel.className = 'comment-username';
@@ -28,7 +39,7 @@ function createCommentSection() {
   submitButton.className = 'submit-comment';
   submitButton.textContent = 'Comment';
 
-  const commentFields = [nameLabel, nameInput, insightsLabel, insightsTextarea, submitButton];
+  const commentFields = [commentDate, nameLabel, nameInput, insightsLabel, insightsTextarea, submitButton];
   for (let i = 0; i < commentFields.length; i += 1) {
     form.appendChild(commentFields[i]);
   }

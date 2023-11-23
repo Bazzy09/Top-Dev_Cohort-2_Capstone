@@ -1,4 +1,6 @@
 /* eslint-disable no-nested-ternary */
+import { createCommentSection } from './comment';
+
 export function createAppend(content, show) {
   const searchResultDiv = document.createElement('div');
   searchResultDiv.classList.add('search-result');
@@ -64,17 +66,24 @@ export function createAppend(content, show) {
   searchResultDiv.appendChild(searchResultPoster);
   searchResultDiv.appendChild(searchResultName);
   searchResultDiv.appendChild(reactionDiv);
-  searchResultDiv.appendChild(reservationForm);
   searchResultPoster.addEventListener('click', () => {
     content.style.alignItems = 'normal';
     content.innerHTML = '';
     showMovieDetails(content, show);
   });
 
+  commentButton.addEventListener('click', () => {
+    content.style.alignItems = 'normal';
+    content.innerHTML = '';
+    showMovieDetails(content, show);
+    const commentSectiondisplay = document.querySelector('.comment-form');
+    commentSectiondisplay.classList.toggle('active');
+  });
   content.appendChild(searchResultDiv);
 }
 
 function showMovieDetails(content, movieDetails) {
+  const commentSection = createCommentSection();
   const fullDetailsContainer = document.createElement('div');
   fullDetailsContainer.className = 'full-details';
 
@@ -131,6 +140,7 @@ function showMovieDetails(content, movieDetails) {
   imageCard.appendChild(showInfo);
 
   fullDetailsContainer.appendChild(imageCard);
+  fullDetailsContainer.appendChild(commentSection);
 
   content.appendChild(fullDetailsContainer);
 }

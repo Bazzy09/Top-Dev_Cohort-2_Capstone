@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .comment-form label {
+            display: none;
+        }
+
+        .comment-form input {
+            padding: 3px;
+        }
+
+        #comment-username {
+            width: 180px;
+            height: 20px;
+        }
+
+        #comment-insights {
+            width: 300px;
+            max-width: 400px;
+        }
+
+        .comment-form button {
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <form action="" class="comment-form">
+        <label for="comment-username" class="comment-username">Name</label>
+        <input type="text" id="comment-username" placeholder="Your name">
+        <label for="comment-insights" class="comment-insights">Insights</label>
+        <textarea type="text" id="comment-insights" placeholder="Your insights" rows="6"></textarea>
+        <button type="submit" class="submit-comment">Comment</button>
+    </form>
+    
+</body>
+</html>

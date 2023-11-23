@@ -1,5 +1,7 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable no-nested-ternary */
-import { createCommentSection } from './comment';
+import { generateCommentForm, createCommentLogs, addComment } from './comment';
 
 export function createAppend(content, show) {
   const searchResultDiv = document.createElement('div');
@@ -83,7 +85,8 @@ export function createAppend(content, show) {
 }
 
 function showMovieDetails(content, movieDetails) {
-  const commentSection = createCommentSection();
+  const commentLogSection = createCommentLogs();
+  const commentSection = generateCommentForm();
   const fullDetailsContainer = document.createElement('div');
   fullDetailsContainer.className = 'full-details';
 
@@ -140,7 +143,15 @@ function showMovieDetails(content, movieDetails) {
   imageCard.appendChild(showInfo);
 
   fullDetailsContainer.appendChild(imageCard);
+  fullDetailsContainer.appendChild(commentLogSection);
   fullDetailsContainer.appendChild(commentSection);
 
   content.appendChild(fullDetailsContainer);
+
+  const commentSubmitBtn = document.querySelector('.submit-comment');
+  commentSubmitBtn.addEventListener('click', (event) => {
+    console.log('clicked');
+    event.preventDefault();
+    addComment();
+  });
 }

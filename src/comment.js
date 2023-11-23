@@ -1,4 +1,4 @@
-function createCommentSection() {
+function generateCommentForm() {
   const form = document.createElement('form');
   form.action = '';
   form.className = 'comment-form';
@@ -9,10 +9,16 @@ function createCommentSection() {
 
   const commentDate = document.createElement('input');
   commentDate.style.display = 'none';
-  commentDate.type = 'date';
+  commentDate.type = 'text';
   commentDate.id = 'comment-date';
-  const today = new Date().toISOString().split('T')[0];
-  commentDate.value = today;
+
+  const today = new Date();
+  const day = today.getDate();
+  const month = today.getMonth() + 1;
+  const year = today.getFullYear();
+  const formattedDate = `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
+
+  commentDate.value = formattedDate;
 
   const nameLabel = document.createElement('label');
   nameLabel.htmlFor = 'comment-username';
@@ -46,4 +52,31 @@ function createCommentSection() {
   return form;
 }
 
-export { createCommentSection };
+function createCommentLogs() {
+  const commentLogSection = document.createElement('div');
+  commentLogSection.className = 'comment-log-section';
+
+  const commentHeader = document.createElement('h2');
+  commentHeader.className = 'comment-header';
+  commentHeader.textContent = 'Comments';
+
+  const commentRecords = document.createElement('div');
+  commentRecords.className = 'comment-records';
+
+  commentLogSection.appendChild(commentHeader);
+  commentLogSection.appendChild(commentRecords);
+
+  return commentLogSection;
+}
+function addComment() {
+  const commentRecords = document.querySelector('.comment-records');
+  const commentDate = document.querySelector('#comment-date');
+  const nameInput = document.querySelector('#comment-username');
+  const insightsText = document.querySelector('#comment-insights');
+  const newRecord = document.createElement('p');
+  newRecord.className = 'new=record';
+  newRecord.textContent = `${commentDate.value}   ${nameInput.value}: ${insightsText.value}`;
+  commentRecords.appendChild(newRecord);
+}
+
+export { generateCommentForm, createCommentLogs, addComment };

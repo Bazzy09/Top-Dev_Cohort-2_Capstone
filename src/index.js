@@ -1,6 +1,8 @@
 import { toggleHamburger, windowClick, closeMenu, handleClick } from './navbar.js';
 import { displayHomeResults } from './home.js';
+import { preloader } from './loader.js';
 
+preloader();
 displayHomeResults();
 handleClick();
 

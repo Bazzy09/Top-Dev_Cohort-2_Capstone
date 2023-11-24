@@ -9,7 +9,6 @@ class Comment {
   }
 }
 
-
 function generateCommentForm() {
   const form = document.createElement('form');
   form.action = '';
@@ -41,6 +40,7 @@ function generateCommentForm() {
   nameInput.type = 'text';
   nameInput.id = 'comment-username';
   nameInput.placeholder = 'Your name';
+  nameInput.required = true;
 
   const insightsLabel = document.createElement('label');
   insightsLabel.htmlFor = 'comment-insights';
@@ -51,6 +51,7 @@ function generateCommentForm() {
   insightsTextarea.id = 'comment-insights';
   insightsTextarea.placeholder = 'Your insights';
   insightsTextarea.rows = '6';
+  insightsTextarea.required = true;
 
   const submitButton = document.createElement('button');
   submitButton.type = 'submit';

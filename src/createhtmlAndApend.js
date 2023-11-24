@@ -100,6 +100,11 @@ function showMovieDetails(content, movieDetails) {
   const showInfo = document.createElement('div');
   showInfo.className = 'show-info';
 
+  const showId = document.createElement('h1');
+  showId.className = 'showId';
+  showId.style.display = 'none';
+  showId.textContent = movieDetails.id || movieDetails.show.id;
+
   const showTitle = document.createElement('h1');
   showTitle.className = 'showTitle';
   showTitle.textContent = movieDetails.name || movieDetails.show.name;
@@ -134,7 +139,7 @@ function showMovieDetails(content, movieDetails) {
   showSummary.appendChild(plotTitle);
   showSummary.appendChild(summary);
 
-  const showInfos = [showTitle, year, genre, language, rating, showSummary];
+  const showInfos = [showId, showTitle, year, genre, language, rating, showSummary];
   for (let i = 0; i < showInfos.length; i += 1) {
     showInfo.appendChild(showInfos[i]);
   }
@@ -148,8 +153,8 @@ function showMovieDetails(content, movieDetails) {
 
   content.appendChild(fullDetailsContainer);
 
-  const commentSubmitBtn = document.querySelector('.submit-comment');
-  commentSubmitBtn.addEventListener('click', (event) => {
+  const commentSubmit = document.querySelector('.comment-form');
+  commentSubmit.addEventListener('submit', (event) => {
     console.log('clicked');
     event.preventDefault();
     addCommentToComments();

@@ -93,3 +93,6 @@ function addReservation() {
   }
 }
 
+function createLocalStore() {
+  localStorage.setItem('reservationStore', JSON.stringify(reservationStore));
+}

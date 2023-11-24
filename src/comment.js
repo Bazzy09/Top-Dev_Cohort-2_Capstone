@@ -1,12 +1,14 @@
 let commentStore = [];
-
+retrieveLocalStore();
 class Comment {
-  constructor(date, name, insight) {
+  constructor(date, name, insight, movieId) {
     this.date = date;
     this.name = name;
     this.insight = insight;
+    this.movieId = movieId;
   }
 }
+
 
 function generateCommentForm() {
   const form = document.createElement('form');
@@ -83,26 +85,35 @@ function addCommentToComments() {
   let date = document.querySelector('#comment-date').value;
   let name = document.querySelector('#comment-username').value;
   let insight = document.querySelector('#comment-insights').value;
-  let newCommentEntry = new Comment(date, name, insight);
+  let movieId = document.querySelector('.showId').textContent;
+
+  let newCommentEntry = new Comment(date, name, insight, movieId);
   commentStore.push(newCommentEntry);
+  addComment(movieId);
   createLocalStore();
-  addComment();
 }
 
-function addComment() {
+function addComment(movieId) {
   let commentRecords = document.querySelector('.comment-records');
   commentRecords.innerHTML = '';
-  for (let i = 0; i < commentStore.length; i += 1) {
-    const newRecord = commentStore[i];
+  const filteredComments = commentStore.filter((obj) => obj.movieId === movieId);
+
+  for (let i = 0; i < filteredComments.length; i += 1) {
+    const eachComment = filteredComments[i];
     const eachRecord = document.createElement('p');
     eachRecord.className = 'new-record';
-    eachRecord.textContent = `${newRecord.date}   ${newRecord.name}: ${newRecord.insight}`;
+    eachRecord.textContent = `${eachComment.date} ${eachComment.name}: ${eachComment.insight}`;
     commentRecords.appendChild(eachRecord);
   }
 }
 
 function createLocalStore() {
   localStorage.setItem('commentStore', JSON.stringify(commentStore));
+}
+
+function retrieveLocalStore() {
+  const storedTasks = JSON.parse(localStorage.getItem('commentStore')) || [];
+  commentStore = storedTasks;
 }
 
 export { generateCommentForm, createCommentLogs, addCommentToComments };

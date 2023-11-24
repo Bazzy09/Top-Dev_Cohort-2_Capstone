@@ -2,6 +2,7 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-nested-ternary */
 import { generateCommentForm, createCommentLogs, addCommentToComments } from './comment';
+import { generateReservationForm, createReservationLogs, addReservationToReservations } from './reservation'
 
 export function createAppend(content, show) {
   const searchResultDiv = document.createElement('div');
@@ -87,6 +88,8 @@ export function createAppend(content, show) {
 function showMovieDetails(content, movieDetails) {
   const commentLogSection = createCommentLogs();
   const commentSection = generateCommentForm();
+  const reservationLogSection = createReservationLogs();
+  const reservationForm = generateReservationForm(); 
   const fullDetailsContainer = document.createElement('div');
   fullDetailsContainer.className = 'full-details';
 

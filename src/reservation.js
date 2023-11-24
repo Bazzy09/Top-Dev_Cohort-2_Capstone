@@ -77,7 +77,7 @@ function addReservationToReservations() {
   const endDate = document.querySelector('#end-date').value;
   const newReservationEntry = new Reservation(name, startDate, endDate);
   reservationStore.push(newReservationEntry);
-  createLocalStore();
+  reservationLocalStore();
   addReservation();
 }
 
@@ -93,7 +93,7 @@ function addReservation() {
   }
 }
 
-function createLocalStore() {
+function reservationLocalStore () {
   localStorage.setItem('reservationStore', JSON.stringify(reservationStore));
 }
 

@@ -1,4 +1,4 @@
-let reservationStore = [];
+const reservationStore = [];
 
 class Reservation {
   constructor(name, startDate, endDate) {
@@ -72,17 +72,17 @@ function createReservationLogs() {
 }
 
 function addReservationToReservations() {
-  let name = document.querySelector('#reservation-name').value;
-  let startDate = document.querySelector('#start-date').value;
-  let endDate = document.querySelector('#end-date').value;
-  let newReservationEntry = new Reservation(name, startDate, endDate);
+  const name = document.querySelector('#reservation-name').value;
+  const startDate = document.querySelector('#start-date').value;
+  const endDate = document.querySelector('#end-date').value;
+  const newReservationEntry = new Reservation(name, startDate, endDate);
   reservationStore.push(newReservationEntry);
   createLocalStore();
   addReservation();
 }
 
 function addReservation() {
-  let reservationRecords = document.querySelector('.reservation-records');
+  const reservationRecords = document.querySelector('.reservation-records');
   reservationRecords.innerHTML = '';
   for (let i = 0; i < reservationStore.length; i += 1) {
     const newRecord = reservationStore[i];

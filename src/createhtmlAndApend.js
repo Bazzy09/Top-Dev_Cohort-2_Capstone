@@ -2,6 +2,7 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-nested-ternary */
 import { generateCommentForm, createCommentLogs, addCommentToComments, initializeComments } from './comment';
+import { generateReservationForm, createReservationLogs, addReservationToReservations } from './reservation';
 
 export function createAppend(content, show) {
   const searchResultDiv = document.createElement('div');
@@ -83,12 +84,23 @@ export function createAppend(content, show) {
     const commentSectiondisplay = document.querySelector('.comment-form');
     commentSectiondisplay.classList.toggle('active');
   });
+
+  reservationButton.addEventListener('click', () => {
+    console.log('first btn reserve');
+    content.style.alignItems = 'normal';
+    content.innerHTML = '';
+    showMovieDetails(content, show);
+    const reservationSectiondisplay = document.querySelector('.reservation-form');
+    reservationSectiondisplay.classList.toggle('active');
+  });
   content.appendChild(searchResultDiv);
 }
 
 function showMovieDetails(content, movieDetails) {
   const commentLogSection = createCommentLogs();
   const commentSection = generateCommentForm();
+  const reservationLogSection = createReservationLogs();
+  const reservationForm = generateReservationForm();
   const fullDetailsContainer = document.createElement('div');
   fullDetailsContainer.className = 'full-details';
 
@@ -158,6 +170,8 @@ function showMovieDetails(content, movieDetails) {
   fullDetailsContainer.appendChild(commentLogSection);
   fullDetailsContainer.appendChild(addNewCommentBtn);
   fullDetailsContainer.appendChild(commentSection);
+  fullDetailsContainer.appendChild(reservationLogSection);
+  fullDetailsContainer.appendChild(reservationForm);
 
   content.appendChild(fullDetailsContainer);
 
@@ -179,5 +193,12 @@ function showMovieDetails(content, movieDetails) {
     addNewCommentBtn.style.display = 'block';
     username.value = '';
     commentEntered.value = '';
+  });
+
+  const reserveButton = document.querySelector('.reserve-button');
+  reserveButton.addEventListener('click', (event) => {
+    console.log('reserveButton clicked');
+    event.preventDefault();
+   addReservationToReservations();
   });
 }

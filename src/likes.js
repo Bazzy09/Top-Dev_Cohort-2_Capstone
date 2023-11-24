@@ -15,3 +15,7 @@ export function toggleLike() {
   }
 }
 
+likes.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleLike();
+})

@@ -78,6 +78,8 @@ export function createAppend(content, show) {
     content.style.alignItems = 'normal';
     content.innerHTML = '';
     showMovieDetails(content, show);
+    const secondCommentBtn = document.querySelector('.addNewCommentBtn');
+    secondCommentBtn.style.display = 'none';
     const commentSectiondisplay = document.querySelector('.comment-form');
     commentSectiondisplay.classList.toggle('active');
   });
@@ -136,6 +138,11 @@ function showMovieDetails(content, movieDetails) {
   summary.className = 'summary';
   summary.innerHTML = movieDetails.summary || movieDetails.show.summary || 'Summary N/A';
 
+  const addNewCommentBtn = document.createElement('button');
+  addNewCommentBtn.type = 'submit';
+  addNewCommentBtn.className = 'addNewCommentBtn';
+  addNewCommentBtn.textContent = 'New Comment';
+
   showSummary.appendChild(plotTitle);
   showSummary.appendChild(summary);
 
@@ -149,11 +156,17 @@ function showMovieDetails(content, movieDetails) {
 
   fullDetailsContainer.appendChild(imageCard);
   fullDetailsContainer.appendChild(commentLogSection);
+  fullDetailsContainer.appendChild(addNewCommentBtn);
   fullDetailsContainer.appendChild(commentSection);
 
   content.appendChild(fullDetailsContainer);
 
   initializeComments();
+
+  addNewCommentBtn.addEventListener('click', () => {
+    addNewCommentBtn.style.display = 'none';
+    commentSection.style.display = 'flex';
+  });
 
   const commentSubmit = document.querySelector('.comment-form');
   commentSubmit.addEventListener('submit', (event) => {
@@ -162,6 +175,8 @@ function showMovieDetails(content, movieDetails) {
     console.log('clicked');
     event.preventDefault();
     addCommentToComments();
+    commentSubmit.style.display = 'none';
+    addNewCommentBtn.style.display = 'block';
     username.value = '';
     commentEntered.value = '';
   });

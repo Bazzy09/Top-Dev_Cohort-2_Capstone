@@ -70,3 +70,14 @@ function createReservationLogs() {
 
   return reservationLogSection;
 }
+
+function addReservationToReservations() {
+  let name = document.querySelector('#reservation-name').value;
+  let startDate = document.querySelector('#start-date').value;
+  let endDate = document.querySelector('#end-date').value;
+  let newReservationEntry = new Reservation(name, startDate, endDate);
+  reservationStore.push(newReservationEntry);
+  createLocalStore();
+  addReservation();
+}
+

@@ -21,7 +21,8 @@ export function createAppend(content, show) {
   likeText.textContent = 'Like';
 
   const likesCounter = document.createElement('div');
-  likesCounter.textContent = '3 likes';
+  likesCounter.classList.add('counter');
+  likesCounter.textContent = '';
 
   const commentButton = document.createElement('button');
   commentButton.textContent = 'Comment';
@@ -63,7 +64,8 @@ export function createAppend(content, show) {
   searchResultDiv.appendChild(searchResultPoster);
   searchResultDiv.appendChild(searchResultName);
   searchResultDiv.appendChild(reactionDiv);
-  searchResultDiv.addEventListener('click', () => {
+  searchResultPoster.addEventListener('click', (e) => {
+    e.preventDefault();
     content.style.alignItems = 'normal';
     content.innerHTML = '';
     showMovieDetails(content, show);

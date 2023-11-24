@@ -1,5 +1,7 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable max-len */
 let commentStore = [];
-retrieveLocalStore();
+
 class Comment {
   constructor(date, name, insight, movieId) {
     this.date = date;
@@ -83,19 +85,19 @@ function createCommentLogs() {
 }
 
 function addCommentToComments() {
-  let date = document.querySelector('#comment-date').value;
-  let name = document.querySelector('#comment-username').value;
-  let insight = document.querySelector('#comment-insights').value;
-  let movieId = document.querySelector('.showId').textContent;
+  const date = document.querySelector('#comment-date').value;
+  const name = document.querySelector('#comment-username').value;
+  const insight = document.querySelector('#comment-insights').value;
+  const movieId = document.querySelector('.showId').textContent;
 
-  let newCommentEntry = new Comment(date, name, insight, movieId);
+  const newCommentEntry = new Comment(date, name, insight, movieId);
   commentStore.push(newCommentEntry);
   addComment(movieId);
   createLocalStore();
 }
 
 function addComment(movieId) {
-  let commentRecords = document.querySelector('.comment-records');
+  const commentRecords = document.querySelector('.comment-records');
   commentRecords.innerHTML = '';
   const filteredComments = commentStore.filter((obj) => obj.movieId === movieId);
 
@@ -113,8 +115,14 @@ function createLocalStore() {
 }
 
 function retrieveLocalStore() {
-  const storedTasks = JSON.parse(localStorage.getItem('commentStore')) || [];
+  const storedTasks = JSON.parse(localStorage.getItem('commentStore'));
   commentStore = storedTasks;
 }
 
-export { generateCommentForm, createCommentLogs, addCommentToComments };
+function initializeComments() {
+  retrieveLocalStore();
+  const movieId = document.querySelector('.showId').textContent;
+  addComment(movieId);
+}
+
+export { generateCommentForm, createCommentLogs, addCommentToComments, initializeComments };

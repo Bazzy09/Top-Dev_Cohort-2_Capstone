@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-nested-ternary */
-import { generateCommentForm, createCommentLogs, addCommentToComments } from './comment';
+import { generateCommentForm, createCommentLogs, addCommentToComments, initializeComments } from './comment';
 
 export function createAppend(content, show) {
   const searchResultDiv = document.createElement('div');
@@ -153,10 +153,16 @@ function showMovieDetails(content, movieDetails) {
 
   content.appendChild(fullDetailsContainer);
 
+  initializeComments();
+
   const commentSubmit = document.querySelector('.comment-form');
   commentSubmit.addEventListener('submit', (event) => {
+    const username = document.querySelector('#comment-username');
+    const commentEntered = document.querySelector('#comment-insights');
     console.log('clicked');
     event.preventDefault();
     addCommentToComments();
+    username.value = '';
+    commentEntered.value = '';
   });
 }

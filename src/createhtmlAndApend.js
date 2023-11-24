@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-nested-ternary */
-import { generateCommentForm, createCommentLogs, addCommentToComments } from './comment';
+import { generateCommentForm, createCommentLogs, addCommentToComments, initializeComments } from './comment';
 import { generateReservationForm, createReservationLogs, addReservationToReservations } from './reservation';
 
 export function createAppend(content, show) {
@@ -79,6 +79,8 @@ export function createAppend(content, show) {
     content.style.alignItems = 'normal';
     content.innerHTML = '';
     showMovieDetails(content, show);
+    const secondCommentBtn = document.querySelector('.addNewCommentBtn');
+    secondCommentBtn.style.display = 'none';
     const commentSectiondisplay = document.querySelector('.comment-form');
     commentSectiondisplay.classList.toggle('active');
   });
@@ -112,6 +114,11 @@ function showMovieDetails(content, movieDetails) {
   const showInfo = document.createElement('div');
   showInfo.className = 'show-info';
 
+  const showId = document.createElement('h1');
+  showId.className = 'showId';
+  showId.style.display = 'none';
+  showId.textContent = movieDetails.id || movieDetails.show.id;
+
   const showTitle = document.createElement('h1');
   showTitle.className = 'showTitle';
   showTitle.textContent = movieDetails.name || movieDetails.show.name;
@@ -143,10 +150,15 @@ function showMovieDetails(content, movieDetails) {
   summary.className = 'summary';
   summary.innerHTML = movieDetails.summary || movieDetails.show.summary || 'Summary N/A';
 
+  const addNewCommentBtn = document.createElement('button');
+  addNewCommentBtn.type = 'submit';
+  addNewCommentBtn.className = 'addNewCommentBtn';
+  addNewCommentBtn.textContent = 'New Comment';
+
   showSummary.appendChild(plotTitle);
   showSummary.appendChild(summary);
 
-  const showInfos = [showTitle, year, genre, language, rating, showSummary];
+  const showInfos = [showId, showTitle, year, genre, language, rating, showSummary];
   for (let i = 0; i < showInfos.length; i += 1) {
     showInfo.appendChild(showInfos[i]);
   }
@@ -156,17 +168,31 @@ function showMovieDetails(content, movieDetails) {
 
   fullDetailsContainer.appendChild(imageCard);
   fullDetailsContainer.appendChild(commentLogSection);
+  fullDetailsContainer.appendChild(addNewCommentBtn);
   fullDetailsContainer.appendChild(commentSection);
   fullDetailsContainer.appendChild(reservationLogSection);
   fullDetailsContainer.appendChild(reservationForm);
 
   content.appendChild(fullDetailsContainer);
 
-  const commentSubmitBtn = document.querySelector('.submit-comment');
-  commentSubmitBtn.addEventListener('click', (event) => {
+  initializeComments();
+
+  addNewCommentBtn.addEventListener('click', () => {
+    addNewCommentBtn.style.display = 'none';
+    commentSection.style.display = 'flex';
+  });
+
+  const commentSubmit = document.querySelector('.comment-form');
+  commentSubmit.addEventListener('submit', (event) => {
+    const username = document.querySelector('#comment-username');
+    const commentEntered = document.querySelector('#comment-insights');
     console.log('clicked');
     event.preventDefault();
     addCommentToComments();
+    commentSubmit.style.display = 'none';
+    addNewCommentBtn.style.display = 'block';
+    username.value = '';
+    commentEntered.value = '';
   });
 
   const reserveButton = document.querySelector('.reserve-button');

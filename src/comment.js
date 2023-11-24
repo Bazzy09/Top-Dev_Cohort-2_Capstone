@@ -1,10 +1,13 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable max-len */
 let commentStore = [];
 
 class Comment {
-  constructor(date, name, insight) {
+  constructor(date, name, insight, movieId) {
     this.date = date;
     this.name = name;
     this.insight = insight;
+    this.movieId = movieId;
   }
 }
 
@@ -39,6 +42,7 @@ function generateCommentForm() {
   nameInput.type = 'text';
   nameInput.id = 'comment-username';
   nameInput.placeholder = 'Your name';
+  nameInput.required = true;
 
   const insightsLabel = document.createElement('label');
   insightsLabel.htmlFor = 'comment-insights';
@@ -49,6 +53,7 @@ function generateCommentForm() {
   insightsTextarea.id = 'comment-insights';
   insightsTextarea.placeholder = 'Your insights';
   insightsTextarea.rows = '6';
+  insightsTextarea.required = true;
 
   const submitButton = document.createElement('button');
   submitButton.type = 'submit';
@@ -80,23 +85,27 @@ function createCommentLogs() {
 }
 
 function addCommentToComments() {
-  let date = document.querySelector('#comment-date').value;
-  let name = document.querySelector('#comment-username').value;
-  let insight = document.querySelector('#comment-insights').value;
-  let newCommentEntry = new Comment(date, name, insight);
+  const date = document.querySelector('#comment-date').value;
+  const name = document.querySelector('#comment-username').value;
+  const insight = document.querySelector('#comment-insights').value;
+  const movieId = document.querySelector('.showId').textContent;
+
+  const newCommentEntry = new Comment(date, name, insight, movieId);
   commentStore.push(newCommentEntry);
+  addComment(movieId);
   createLocalStore();
-  addComment();
 }
 
-function addComment() {
-  let commentRecords = document.querySelector('.comment-records');
+function addComment(movieId) {
+  const commentRecords = document.querySelector('.comment-records');
   commentRecords.innerHTML = '';
-  for (let i = 0; i < commentStore.length; i += 1) {
-    const newRecord = commentStore[i];
+  const filteredComments = commentStore.filter((obj) => obj.movieId === movieId);
+
+  for (let i = 0; i < filteredComments.length; i += 1) {
+    const eachComment = filteredComments[i];
     const eachRecord = document.createElement('p');
     eachRecord.className = 'new-record';
-    eachRecord.textContent = `${newRecord.date}   ${newRecord.name}: ${newRecord.insight}`;
+    eachRecord.textContent = `${eachComment.date} ${eachComment.name}: ${eachComment.insight}`;
     commentRecords.appendChild(eachRecord);
   }
 }
@@ -105,4 +114,15 @@ function createLocalStore() {
   localStorage.setItem('commentStore', JSON.stringify(commentStore));
 }
 
-export { generateCommentForm, createCommentLogs, addCommentToComments };
+function retrieveLocalStore() {
+  const storedTasks = JSON.parse(localStorage.getItem('commentStore'));
+  commentStore = storedTasks;
+}
+
+function initializeComments() {
+  retrieveLocalStore();
+  const movieId = document.querySelector('.showId').textContent;
+  addComment(movieId);
+}
+
+export { generateCommentForm, createCommentLogs, addCommentToComments, initializeComments };

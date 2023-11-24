@@ -433,8 +433,11 @@ footer {
     display: none;
 }
 
-.comment-form input {
+.comment-form input,
+.comment-form textarea {
     padding: 3px;
+    border: 1px solid black;
+    outline: none;
 }
 
 #comment-username {
@@ -461,6 +464,30 @@ footer {
 
 .comment-header {
     margin: 5px 0px;
+}
+
+.addNewCommentBtn {
+    width: 200px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.addNewCommentBtn:hover{
+    color: white;
+    background-color: #a8a29e;
+}
+
+.addNewCommentBtn,
+.comment-form button {
+    background-color: white;
+    color: #171717;
+    font-size: 14px;
+    font-weight: 550;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid black;
 }
 
 @media(max-width:760px){

@@ -81,3 +81,15 @@ function addReservationToReservations() {
   addReservation();
 }
 
+function addReservation() {
+  let reservationRecords = document.querySelector('.reservation-records');
+  reservationRecords.innerHTML = '';
+  for (let i = 0; i < reservationStore.length; i += 1) {
+    const newRecord = reservationStore[i];
+    const eachRecord = document.createElement('p');
+    eachRecord.className = 'new-record';
+    eachRecord.textContent = `${newRecord.name}: ${newRecord.startDate} to ${newRecord.endDate}`;
+    reservationRecords.appendChild(eachRecord);
+  }
+}
+

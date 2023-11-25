@@ -1,3 +1,5 @@
+import { toggleLike } from "./likes";
+
 /* eslint-disable no-nested-ternary */
 export function createAppend(content, show) {
   const searchResultDiv = document.createElement('div');
@@ -64,12 +66,16 @@ export function createAppend(content, show) {
   searchResultDiv.appendChild(searchResultPoster);
   searchResultDiv.appendChild(searchResultName);
   searchResultDiv.appendChild(reactionDiv);
+
   searchResultPoster.addEventListener('click', (e) => {
-    e.preventDefault();
     content.style.alignItems = 'normal';
     content.innerHTML = '';
     showMovieDetails(content, show);
   });
+
+  reaction.addEventListener('click', () => {
+    toggleLike(reaction, likesCounter)
+  })
 
   content.appendChild(searchResultDiv);
 }

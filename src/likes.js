@@ -1,4 +1,5 @@
 export function toggleLike(reaction, likesCounter) {
+  
   if (reaction.classList.contains('liked')) {
     likesCounter.innerHTML = ''
     reaction.classList.remove('liked');

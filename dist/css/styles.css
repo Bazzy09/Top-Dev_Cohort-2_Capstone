@@ -154,7 +154,7 @@ content{
     border: 15px solid #dddddd;
     border-top-color: #a8a29e;
     border-radius: 50%;
-    animation: loading 0.75s ease;
+    animation: loading 0.75s ease infinite;
 }
 
 @keyframes loading {

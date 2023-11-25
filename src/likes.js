@@ -1,21 +1,9 @@
-const likes = document.querySelector('.likes');
-const counter = document.querySelector('.counter');
-
-let isLiked = false;
-
-export function toggleLike() {
-  isLiked = !isLiked;
-  
-  if (isLiked) {
-    counter.textContent = 'Liked';
-    likeButton.classList.add('liked');
+export function toggleLike(reaction, likesCounter) {
+  if (reaction.classList.contains('liked')) {
+    likesCounter.innerHTML = ''
+    reaction.classList.remove('liked');
   } else {
-    counter.textContent = '';
-    likeButton.classList.remove('liked');
+    likesCounter.innerHTML = 'Like'
+    reaction.classList.add('liked');
   }
 }
-
-likes.addEventListener('click', (e) => {
-    e.preventDefault();
-    toggleLike();
-})

@@ -1,11 +1,9 @@
 import { toggleHamburger, windowClick, closeMenu, handleClick } from './navbar.js';
 import { displayHomeResults } from './home.js';
 import { preloader } from './loader.js';
-import { toggleLike } from 'likes.js';
 
 preloader();
 displayHomeResults();
-toggleLike();
 handleClick();
 
 const hamburger = document.querySelector('.hamburger');
